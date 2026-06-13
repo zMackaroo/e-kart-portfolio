@@ -4,63 +4,64 @@
 
 ---
 
-App Title: E-Kart
-App Description: E-Kart is a ios/android app for filipino grocery, creating checklist and capturing the items in the cart. a dedicated catalog to check the price of a desired items in all available grocery stores.
+**App title:** E-Kart
 
-Screens:
+**App description:** E-Kart is an iOS/Android app for Filipino grocery shopping — create budget-aware checklists, capture items in the cart, compare prices across stores, and learn from a community forum. Phase 2 adds a NestJS backend (`e-kart-service`) with MongoDB so checklists, forum, profile, analytics, and AI generation persist per user.
 
-- On-boarding Screen (3 slides)
-- Login Screen
-- Home Screen
-  - Show the analytics of the user's shopping behavior and a dedicated footer for displaying promos across the groceries.
-- Checklist
-  - Create a master checklist, tapping on it will open a screen where user can add items to the checklist.
-  - Each Item has a camera on right side, tapping on it will open a camera screen where user can capture the item.
-  - The camera will extract the item price and user can input the quantity then user can tap the save.
-  - After tapping on the save, the image will be added on the item on the checklist and have a price tag on the right side.
-  - User can swipe left to display edit and delete button.
-  - User can input the estimated budget for the checklist.
-  - User can see the actual cost of the checklist.
-  - User can share the checklist to other users.
-- Catalog
-  - A dedicated catalog to check the price of a desired items in all available grocery stores.
-  - The list view will display the grocery store and the equivalent item on the user search.
-- Forum
-  - A forum similar to reddit, user can post a topic and other users can comment on it.
-  - User can upvote or downvote the post.
-  - User can join a subforum to discuss a specific topic.
-  - User can create a subforum to discuss a specific topic.
-  - User can join a subforum to discuss a specific topic.
-- Profile
-  - User can view their profile and their activity.
-  - User can view their forum posts and comments.
-  - User can edit a generated alias name.
-  - Alias name is shown on the forum posts and comments.
-  - User can change password, email, and phone number.
-  - User can delete their account.
-- Settings
-  - User can change the language of the app.
-  - User can change the theme of the app (light and dark mode).
+## Screens
 
-Features:
+- Onboarding (3 slides)
+- Login & register
+- **Home** — shopping analytics, active checklist, quick actions, store promos (API-backed when online)
+- **Checklist** — master lists, items, camera capture, budget, share by email
+- **Catalog** — multi-store price search *(mock data; backend TBD)*
+- **Forum** — Reddit-style feed, votes, comments, subforums, media
+- **Profile** — alias, activity, forum history, account forms
+- **Settings** — language (EN / FIL), theme (light / dark / system)
 
-- Camera OCR to extract the item price.
-- Camera to capture the item.
-- Forum post and comment.
-- Subforum post and comment.
-- Profile and activity.
-- Alias name.
-- Password, email, and phone number.
-- Delete account.
-- Language and theme.
+## Features
 
-Tech Stack: - Frontend: - React Native - GlueStack - Zustand - TypeScript - Backend: - NestJS - Authentication - Checklist Creation - Forum Post and Comment - Subforum Post and Comment - Profile and Activity - Alias Name - Password, Email, and Phone Number - Delete Account - Language and Theme - FastApi - Catalog Search - Database - MongoDB
+- JWT auth with session restore (register, login, logout)
+- Checklist CRUD, share by email, presigned image upload
+- AI generate checklist (mock / OpenAI / Anthropic providers on backend)
+- Forum posts, comments, votes, join/leave subforums
+- Home analytics & promos from API
+- Camera OCR for price capture *(mock on client; real OCR TBD)*
+- Alias-based forum identity
+- Bilingual UI and theme persistence synced to API
 
-Architecture:
+## Tech stack
 
-- MVVM
-- Clean Architecture
-- No over-engineering, keep it simple and clean.
+### Frontend (`e-kart-app`)
 
-Note:
-Create the specs files in format ex. 01-project-setup, first phase of development should focus on the frontend. backend is the second phase.
+- Expo SDK 54 · React Native · TypeScript
+- Expo Router · Gluestack UI · Zustand
+- MVVM — `app/` views, `viewmodels/`, `stores/`, `services/api/`
+
+### Backend (`e-kart-service`)
+
+- NestJS 11 · MongoDB (Mongoose)
+- JWT authentication · Passport
+- OpenAPI / Swagger at `/api/docs`
+- Modules: auth, users, preferences, checklists, generate (AI), forum, analytics, promos, health
+- 30+ e2e API tests
+
+### Integration
+
+- `EXPO_PUBLIC_NESTJS_API_URL` enables all `USE_API.*` flags in `constants/config.ts`
+- API clients: auth, user, checklist, forum, analytics, promo
+- Catalog and OCR remain mock-only by design (spec 20)
+
+## Architecture
+
+- MVVM on the client; modular NestJS on the server
+- Spec-driven development (20 specs: 01–11 frontend, 13–20 backend + integration)
+- No over-engineering — mock services swap to API clients per domain via feature flags
+
+## Project status
+
+| Phase | Scope | Status |
+| ----- | ----- | ------ |
+| Phase 1 | Expo frontend, mock services | Complete (specs 01–11) |
+| Phase 2 | NestJS API + app integration | Complete (specs 13–20) |
+| Future | Production deploy, real OCR, catalog backend | Planned |

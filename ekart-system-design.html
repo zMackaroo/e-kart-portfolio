@@ -31,13 +31,13 @@
         <p class="eyebrow">Architecture · Technical Design</p>
         <h1>System Design</h1>
         <p class="hero-lead">
-          How E-Kart is structured — MVVM layers, Phase 1 mock boundaries, and the Phase 2 split
-          between NestJS, FastAPI, and MongoDB.
+          How E-Kart is structured — MVVM on the Expo client, NestJS API on MongoDB, and feature-flagged
+          integration between mock and live services.
         </p>
         <div class="meta">
           <span class="pill">MVVM + Clean Architecture</span>
-          <span class="pill">Expo SDK 54</span>
-          <span class="pill">Phase 1 complete</span>
+          <span class="pill">Expo SDK 54 + NestJS 11</span>
+          <span class="pill">Phase 1 + 2 complete</span>
         </div>
       </div>
     </header>
@@ -46,63 +46,64 @@
       <section id="overview">
         <h2>Overview</h2>
         <p class="lead">
-          E-Kart is a cross-platform Filipino grocery app. Phase 1 ships a complete frontend with
-          mock services; Phase 2 replaces mocks with real APIs without rewriting ViewModels.
+          E-Kart is a cross-platform Filipino grocery app. Phase 1 shipped the Expo frontend;
+          Phase 2 added <strong>e-kart-service</strong> (NestJS + MongoDB) and wired the app via
+          typed API clients and <code>USE_API.*</code> feature flags.
         </p>
         <div class="grid-2">
           <div class="card">
             <span class="phase-badge p1">Phase 1 — Complete</span>
-            <strong>Frontend + mocks</strong>
-            <p>Expo app, Zustand stores, mock services, AsyncStorage, file-system image URIs.</p>
+            <strong>Expo frontend</strong>
+            <p>MVVM, Zustand stores, mock services for catalog/OCR, Gluestack UI, i18n.</p>
           </div>
           <div class="card">
-            <span class="phase-badge p2">Phase 2 — Planned</span>
-            <strong>Backend integration</strong>
-            <p>NestJS app API, FastAPI catalog search, MongoDB, object storage for captures.</p>
+            <span class="phase-badge p2">Phase 2 — Complete</span>
+            <strong>NestJS + MongoDB</strong>
+            <p>JWT auth, checklists, forum, AI generate, analytics, promos; app integration (spec 20).</p>
           </div>
         </div>
       </section>
 
       <section id="phase2-arch">
-        <h2>High-level architecture</h2>
-        <span class="phase-badge p2">Target — Phase 2</span>
+        <h2>High-level architecture (current)</h2>
+        <span class="phase-badge p2">Phase 2 — Live</span>
         <div class="diagram">
           <div class="arch-row">
             <div class="arch-col">
-              <div class="arch-group-label">Mobile client</div>
-              <div class="arch-box">Views</div>
-              <div class="arch-box">ViewModels</div>
+              <div class="arch-group-label">e-kart-app (Expo)</div>
+              <div class="arch-box">Views · ViewModels</div>
               <div class="arch-box accent">Zustand stores</div>
-              <div class="arch-box">services/</div>
+              <div class="arch-box">services/api/*</div>
+              <div class="arch-box">services/mock/ (catalog, OCR)</div>
             </div>
             <div class="arch-arrow">→</div>
             <div class="arch-col">
-              <div class="arch-group-label">Backend</div>
-              <div class="arch-box accent">NestJS App API</div>
-              <div class="arch-box accent">FastAPI Catalog</div>
+              <div class="arch-group-label">e-kart-service (NestJS)</div>
+              <div class="arch-box accent">/api/v1</div>
+              <div class="arch-box">Auth · Users · Checklists</div>
+              <div class="arch-box">Forum · Generate · Analytics</div>
             </div>
             <div class="arch-arrow">→</div>
             <div class="arch-col">
               <div class="arch-group-label">Data</div>
               <div class="arch-box dark">MongoDB</div>
-              <div class="arch-box dark">Object storage</div>
+              <div class="arch-box dark">S3 (upload URLs)</div>
             </div>
           </div>
         </div>
         <p>
-          NestJS owns auth, checklists, forum, profile, and AI generate
-          (<code>POST /checklists/generate</code>). FastAPI handles multi-store catalog search
-          independently so search can scale on its own.
+          When <code>EXPO_PUBLIC_NESTJS_API_URL</code> is set, auth, profile, checklists, forum,
+          analytics, and promos use the NestJS API. Catalog search and OCR remain client-side mocks.
         </p>
       </section>
 
       <section id="phase1-arch">
-        <h2>Phase 1 architecture</h2>
-        <span class="phase-badge p1">Current</span>
+        <h2>Offline / mock mode</h2>
+        <span class="phase-badge p1">Without API URL</span>
         <div class="diagram">
           <div class="arch-row">
             <div class="arch-col">
-              <div class="arch-group-label">Expo app</div>
+              <div class="arch-group-label">Expo app only</div>
               <div class="arch-box">Views</div>
               <div class="arch-box">ViewModels</div>
               <div class="arch-box accent">Zustand</div>
@@ -117,8 +118,8 @@
           </div>
         </div>
         <p>
-          Mock modules return the same DTO shapes Phase 2 APIs will use. Feature flags in
-          <code>services/api/</code> swap mock vs live clients per domain.
+          Without <code>EXPO_PUBLIC_NESTJS_API_URL</code>, the app runs Phase 1 mock mode — useful for
+          UI demos without a backend.
         </p>
       </section>
 
@@ -205,19 +206,19 @@
               <td>Returns parsed price from capture</td>
             </tr>
             <tr>
-              <td>App API (P2)</td>
-              <td>NestJS</td>
-              <td>Auth, checklists, AI generate, forum, profile</td>
+              <td>App API</td>
+              <td>NestJS 11</td>
+              <td>Auth, checklists, forum, generate, analytics, promos</td>
             </tr>
             <tr>
-              <td>Catalog (P2)</td>
-              <td>FastAPI</td>
-              <td>Multi-store price search</td>
+              <td>Catalog</td>
+              <td>Mock (client)</td>
+              <td>Multi-store search — backend TBD</td>
             </tr>
             <tr>
-              <td>Database (P2)</td>
+              <td>Database</td>
               <td>MongoDB</td>
-              <td>Users, checklists, forum, catalog metadata</td>
+              <td>Users, checklists, forum, preferences</td>
             </tr>
           </tbody>
         </table>
@@ -246,7 +247,11 @@
           </div>
           <div class="seq-row">
             <div class="seq-actor">checklist-store</div>
-            <div class="seq-action">addItem / updateItem — actualCost recomputed on every CRUD</div>
+            <div class="seq-action">addItem / updateItem — actualCost recomputed; API sync when online</div>
+          </div>
+          <div class="seq-row">
+            <div class="seq-actor">Upload (API)</div>
+            <div class="seq-action">Presigned S3 URL → upload capture → save imageUri on item</div>
           </div>
         </div>
 
@@ -262,7 +267,7 @@
           </div>
           <div class="seq-row">
             <div class="seq-actor">Service</div>
-            <div class="seq-action">P1: mock delay + Filipino item pools · P2: NestJS + LLM</div>
+            <div class="seq-action">P2: <code>POST /api/v1/checklists/generate</code> — mock/OpenAI/Anthropic</div>
           </div>
           <div class="seq-row">
             <div class="seq-actor">Draft store</div>
@@ -285,8 +290,8 @@
             <div class="seq-action">catalog-service returns mock StorePriceRow data</div>
           </div>
           <div class="seq-row">
-            <div class="seq-actor">P2</div>
-            <div class="seq-action">FastAPI GET /search?q= returns CatalogOffer[]</div>
+            <div class="seq-actor">Future</div>
+            <div class="seq-action">Dedicated catalog API (not yet implemented)</div>
           </div>
         </div>
       </section>
@@ -304,73 +309,93 @@
           <tbody>
             <tr>
               <td><code>auth-store</code></td>
-              <td>Session, user identifier</td>
-              <td>P1 local · P2 JWT sync</td>
+              <td>JWT access token, user id</td>
+              <td>AsyncStorage · session restore via API</td>
             </tr>
             <tr>
               <td><code>checklist-store</code></td>
-              <td>Master lists, items, budget, actualCost</td>
-              <td>P1 in-memory + seed · P2 MongoDB</td>
+              <td>Lists, items, budget, actualCost</td>
+              <td>Hydrated from <code>GET /checklists</code></td>
             </tr>
             <tr>
               <td><code>generate-checklist-store</code></td>
               <td>Form input + draft until Save/Discard</td>
-              <td>P1 ephemeral</td>
+              <td>Ephemeral (client only)</td>
             </tr>
             <tr>
               <td><code>forum-store</code></td>
               <td>Posts, votes, subforum memberships</td>
-              <td>P1 mock seed · P2 MongoDB</td>
+              <td>Hydrated from <code>/forum/*</code></td>
             </tr>
             <tr>
               <td><code>settings-store</code></td>
               <td>Language, theme preference</td>
-              <td>P1 AsyncStorage · P2 NestJS sync</td>
+              <td>AsyncStorage + <code>PATCH /users/me/preferences</code></td>
             </tr>
             <tr>
-              <td>File system</td>
-              <td>Captured item image URIs</td>
-              <td>P1 local · P2 object storage</td>
+              <td>Object storage</td>
+              <td>Item capture images</td>
+              <td>S3 via presigned upload URL</td>
             </tr>
           </tbody>
         </table>
       </section>
 
       <section id="api">
-        <h2>API boundaries (Phase 2)</h2>
+        <h2>API surface (<code>/api/v1</code>)</h2>
         <table class="doc-table">
           <thead>
             <tr>
-              <th>Service</th>
-              <th>Endpoints</th>
-              <th>Owner</th>
+              <th>Domain</th>
+              <th>Key endpoints</th>
+              <th>Auth</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Authentication</td>
-              <td><code>POST /auth/login</code>, social OAuth</td>
-              <td>NestJS</td>
+              <td>Auth</td>
+              <td><code>POST /auth/register</code>, <code>/login</code>, <code>/logout</code>, <code>GET /session</code></td>
+              <td>Public / JWT</td>
+            </tr>
+            <tr>
+              <td>Users</td>
+              <td><code>GET/PATCH /users/me</code>, alias, email, phone, password</td>
+              <td>JWT</td>
+            </tr>
+            <tr>
+              <td>Preferences</td>
+              <td><code>GET/PATCH /users/me/preferences</code></td>
+              <td>JWT</td>
             </tr>
             <tr>
               <td>Checklists</td>
-              <td><code>GET/POST/PATCH/DELETE /checklists</code></td>
-              <td>NestJS</td>
+              <td><code>GET/POST/PATCH/DELETE /checklists</code>, items, share, upload-url</td>
+              <td>JWT</td>
             </tr>
             <tr>
               <td>AI Generate</td>
               <td><code>POST /checklists/generate</code></td>
-              <td>NestJS + LLM</td>
+              <td>JWT</td>
             </tr>
             <tr>
               <td>Forum</td>
-              <td><code>/forum/posts</code>, subforums, votes</td>
-              <td>NestJS</td>
+              <td><code>/forum/subforums</code>, posts, comments, votes</td>
+              <td>JWT</td>
             </tr>
             <tr>
-              <td>Catalog search</td>
-              <td><code>GET /search?q=</code></td>
-              <td>FastAPI</td>
+              <td>Analytics</td>
+              <td><code>GET /analytics/shopping</code></td>
+              <td>JWT</td>
+            </tr>
+            <tr>
+              <td>Promos</td>
+              <td><code>GET /promos</code></td>
+              <td>Public</td>
+            </tr>
+            <tr>
+              <td>Catalog</td>
+              <td>—</td>
+              <td>Mock on client</td>
             </tr>
           </tbody>
         </table>
@@ -387,8 +412,8 @@
           </li>
           <li>
             <div>
-              <strong>Phase 2 — JWT auth</strong>
-              <span>NestJS handles credentials stored in MongoDB.</span>
+              <strong>Phase 2 — JWT auth (live)</strong>
+              <span>Register, login, session restore; Bearer token on API calls; 401 clears session.</span>
             </div>
           </li>
           <li>
@@ -413,7 +438,7 @@
     </main>
 
     <footer>
-      <p>E-Kart system design · Phase 1 complete · Phase 2 specs 12–14</p>
+      <p>E-Kart system design · Phase 1 + 2 complete · Expo + NestJS</p>
       <nav class="portfolio-footer-nav portfolio-footer-nav--dark">
         <a href="index.html">Portfolio home</a>
         <a href="ekart-app-flow.html">App flow</a>

@@ -36,8 +36,8 @@
         </p>
         <div class="meta">
           <span class="pill">5 tabs</span>
-          <span class="pill">44 routes</span>
-          <span class="pill">Phase 1 specs 01–11</span>
+          <span class="pill">Register + JWT session</span>
+          <span class="pill">Specs 01–11 + 13–20</span>
         </div>
       </div>
     </header>
@@ -69,12 +69,16 @@
             <span>3 slides introducing checklists, catalog, and community — <code>/(auth)/onboarding/[step]</code></span>
           </div>
           <div class="flow-step">
-            <strong>2. Login</strong>
-            <span>Email/phone + password, or Google / Apple — <code>/(auth)/login</code></span>
+            <strong>2. Login / Register</strong>
+            <span>Credentials → NestJS JWT when API enabled — <code>/(auth)/login</code>, <code>/(auth)/register</code></span>
           </div>
           <div class="flow-step">
-            <strong>3. Home</strong>
-            <span>Analytics, active checklist, quick actions, promos — <code>/(tabs)/</code></span>
+            <strong>3. Session restore</strong>
+            <span>Cold start rehydrates token → <code>GET /auth/session</code> → tabs without re-login</span>
+          </div>
+          <div class="flow-step">
+            <strong>4. Home</strong>
+            <span>Analytics + promos from API, pull-to-refresh — <code>/(tabs)/</code></span>
           </div>
         </div>
       </section>
@@ -308,6 +312,34 @@
         </ul>
       </section>
 
+      <section id="sync">
+        <h2>Data sync (Phase 2)</h2>
+        <p class="lead">
+          When <code>EXPO_PUBLIC_NESTJS_API_URL</code> is set, home, checklist, and forum screens
+          pull-to-refresh and hydrate Zustand stores from NestJS. Logout clears auth + data stores.
+        </p>
+        <ul class="feature-list">
+          <li>
+            <div>
+              <strong>Home</strong>
+              <span><code>GET /analytics/shopping</code>, <code>GET /promos</code>, checklist list refresh</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Checklist</strong>
+              <span><code>GET /checklists</code> on tab open; detail loads items per checklist id</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Forum</strong>
+              <span>Subforums, joined list, posts feed — votes and comments mutate via API</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
       <section id="profile">
         <h2>Profile &amp; settings</h2>
         <div class="diagram">
@@ -356,7 +388,7 @@
     </main>
 
     <footer>
-      <p>E-Kart app flow · Phase 1 complete</p>
+      <p>E-Kart app flow · Phase 1 + 2 complete</p>
       <nav class="portfolio-footer-nav portfolio-footer-nav--dark">
         <a href="index.html">Portfolio home</a>
         <a href="ekart-system-design.html">System design</a>

@@ -351,8 +351,8 @@
         <div class="meta">
           <span class="pill">Role: Product &amp; Engineering</span>
           <span class="pill">Platform: iOS &amp; Android</span>
-          <span class="pill">Stack: Expo · React Native · TypeScript</span>
-          <span class="pill">Phase: 1 complete (11 specs)</span>
+          <span class="pill">Stack: Expo · NestJS · MongoDB</span>
+          <span class="pill">Phase: 1 + 2 complete (20 specs)</span>
         </div>
       </div>
     </header>
@@ -367,16 +367,17 @@
           specifically for the Philippine context.
         </p>
         <p>
-          Phase 1 delivers a fully navigable frontend with mock data and services, spec-driven
-          development, and clear boundaries so NestJS, FastAPI, and MongoDB can plug in during Phase
-          2 without rewriting the UI layer.
+          Phase 1 delivered a fully navigable Expo frontend with mock services. Phase 2 added
+          <strong>e-kart-service</strong> — a NestJS API on MongoDB — and wired the app end-to-end
+          via JWT auth, typed API clients, and Zustand store hydration. Catalog search and OCR remain
+          mock-only until dedicated backends exist.
         </p>
 
         <div class="stat-row">
-          <div class="stat"><strong>11</strong><span>Frontend specs shipped</span></div>
+          <div class="stat"><strong>20</strong><span>Specs shipped</span></div>
           <div class="stat"><strong>5</strong><span>Core tabs</span></div>
-          <div class="stat"><strong>2</strong><span>Languages (EN / FIL)</span></div>
-          <div class="stat"><strong>3</strong><span>Theme modes</span></div>
+          <div class="stat"><strong>30+</strong><span>API e2e tests</span></div>
+          <div class="stat"><strong>2</strong><span>Repos (app + service)</span></div>
         </div>
       </section>
 
@@ -490,7 +491,7 @@
           </div>
           <div class="flow-step">
             <strong>2. Generate</strong>
-            <span>Lottie loading screen with cycling status copy while a mock service builds the plan.</span>
+            <span>Lottie loading screen with cycling status copy; backend calls NestJS generate endpoint (mock/OpenAI/Anthropic).</span>
           </div>
           <div class="flow-step">
             <strong>3. Preview</strong>
@@ -549,12 +550,13 @@
           <span>Expo SDK 54</span>
           <span>React Native</span>
           <span>TypeScript</span>
+          <span>NestJS 11</span>
+          <span>MongoDB</span>
+          <span>JWT</span>
           <span>Expo Router</span>
           <span>Gluestack UI</span>
           <span>Zustand</span>
-          <span>expo-camera</span>
-          <span>lottie-react-native</span>
-          <span>react-native-gesture-handler</span>
+          <span>OpenAPI</span>
           <span>MVVM</span>
         </div>
       </section>
@@ -564,8 +566,8 @@
         <ul class="feature-list">
           <li>
             <div>
-              <strong>Mock-first services</strong>
-              <span>Catalog, forum, OCR, and AI generate mirror future NestJS/FastAPI shapes — swap, don’t rewrite ViewModels.</span>
+              <strong>API-first integration</strong>
+              <span><code>USE_API.*</code> flags in <code>constants/config.ts</code> swap mock services for NestJS clients per domain — ViewModels unchanged.</span>
             </div>
           </li>
           <li>
@@ -589,41 +591,86 @@
         </ul>
       </section>
 
-      <section id="results">
-        <h2>Results (Phase 1)</h2>
+      <section id="phase2">
+        <h2>Phase 2: Full-stack integration</h2>
         <p>
-          All Phase 1 acceptance criteria are met: full user journey from onboarding through settings,
-          including the AI generate checklist flow with meal plan preview and shopping summary. The
-          codebase passes TypeScript and ESLint; architecture docs and specs live alongside the app
-          for continuity into backend integration.
+          Specs 13–20 built <strong>e-kart-service</strong> and connected the Expo app. The API runs at
+          <code>/api/v1</code> with Swagger docs, JWT auth, and MongoDB persistence.
+        </p>
+        <ul class="feature-list">
+          <li>
+            <div>
+              <strong>Auth &amp; profile (specs 14–15)</strong>
+              <span>Register, login, session restore, alias/email/phone/password, preferences sync.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Checklists (spec 16)</strong>
+              <span>CRUD, items, share by email, presigned S3 upload URLs for item photos.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>AI generate (spec 17)</strong>
+              <span><code>POST /checklists/generate</code> — Zod validation, rate limit, mock/OpenAI/Anthropic providers.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Forum (spec 18)</strong>
+              <span>Subforums, posts, comments, votes; seeded starter content on first boot.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Analytics &amp; promos (spec 19)</strong>
+              <span>Monthly spend snapshot and home footer promos from MongoDB-backed API.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>App integration (spec 20)</strong>
+              <span>Register screen, pull-to-refresh on home/checklist/forum, logout clears stores, full-stack dev docs.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="results">
+        <h2>Results</h2>
+        <p>
+          End-to-end smoke path works locally: register → create checklist → generate AI list → forum
+          vote/comment → profile alias edit → home analytics refresh. TypeScript and ESLint pass on
+          both repos; backend e2e suite covers API contracts.
         </p>
         <div class="grid-2">
           <div class="card">
-            <h3>Shipped</h3>
-            <p>Checklist + camera/OCR, catalog search, forum with media, profile, settings, AI generate.</p>
+            <h3>Phase 1 — UI</h3>
+            <p>All tabs, AI generate preview, catalog mock search, forum with media, bilingual settings.</p>
           </div>
           <div class="card">
-            <h3>Validated</h3>
-            <p>Navigation stacks, discard/save flows, theme and language persistence, budget recalculation on CRUD.</p>
+            <h3>Phase 2 — API</h3>
+            <p>NestJS modules live; app hydrates from API when <code>EXPO_PUBLIC_NESTJS_API_URL</code> is set.</p>
           </div>
         </div>
       </section>
 
       <section id="next">
-        <h2>What’s next (Phase 2)</h2>
-        <p>Backend specs 12–20: NestJS modules (13–19) plus FastAPI catalog (20).</p>
+        <h2>What’s next</h2>
+        <p>Intentionally deferred — catalog and OCR stay mock on the client until backends are specced.</p>
         <div class="next-grid">
           <div class="card">
-            <strong>Specs 13–19</strong>
-            <p>NestJS — setup, auth, checklists, AI generate, forum, integration.</p>
+            <strong>Production</strong>
+            <p>MongoDB Atlas, EAS build env vars, deployment pipeline.</p>
           </div>
           <div class="card">
-            <strong>Spec 20</strong>
-            <p>FastAPI — multi-store catalog search.</p>
+            <strong>Real OCR</strong>
+            <p>Replace mock price extraction on item capture.</p>
           </div>
           <div class="card">
-            <strong>Spec 12</strong>
-            <p>Infrastructure overview and migration strategy.</p>
+            <strong>Catalog API</strong>
+            <p>Multi-store search backend (optional future spec).</p>
           </div>
         </div>
       </section>
@@ -688,7 +735,7 @@
     </main>
 
     <footer>
-      <p>E-Kart case study · Phase 1 frontend · Built with Expo &amp; TypeScript</p>
+      <p>E-Kart case study · Phase 1 + 2 complete · Expo &amp; NestJS</p>
       <nav class="portfolio-footer-nav portfolio-footer-nav--dark">
         <a href="index.html">Portfolio home</a>
         <a href="ekart-promo.html">Promo</a>
