@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Kart — Screen Mockups</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="ekart-mockups.css" />
+    <link rel="stylesheet" href="portfolio-nav.css" />
+  </head>
+  <body>
+    <nav class="portfolio-nav">
+      <a class="portfolio-nav-brand" href="index.html">E-Kart Portfolio</a>
+      <div class="portfolio-nav-links">
+        <a href="index.html">Home</a>
+        <a href="ekart-promo.html">Promo</a>
+        <a href="ekart-case-study.html">Case Study</a>
+        <a href="ekart-mockups.html" class="active">Mockups</a>
+        <a href="ekart-system-design.html">System Design</a>
+        <a href="ekart-app-flow.html">App Flow</a>
+        <a href="ekart.md">Brief</a>
+      </div>
+    </nav>
+    <header class="page-header">
+      <h1>E-Kart Screen Mockups</h1>
+      <p>
+        HTML portfolio mockups for Phase 1 screens. Open in a browser and screenshot individual phones,
+        or print to PDF. Matches app tokens (#53B175, Poppins, Gluestack-style layout).
+      </p>
+    </header>
+
+    <nav class="nav-jump">
+      <a href="#onboarding">Onboarding</a>
+      <a href="#login">Login</a>
+      <a href="#home">Home</a>
+      <a href="#checklist">Checklists</a>
+      <a href="#checklist-detail">Detail</a>
+      <a href="#fab-menu">FAB Menu</a>
+      <a href="#generate-form">Generate</a>
+      <a href="#generate-loading">Loading</a>
+      <a href="#generate-preview">Preview</a>
+      <a href="#catalog">Catalog</a>
+      <a href="#forum">Forum</a>
+      <a href="#profile">Profile</a>
+      <a href="#settings">Settings</a>
+    </nav>
+
+    <main class="gallery">
+      <!-- ONBOARDING -->
+      <article class="screen-card" id="onboarding">
+        <div class="device">
+          <div class="device-screen">
+            <div class="status-bar">
+              <span class="time">9:41</span>
+              <div class="status-icons">
+                <span class="signal"></span>
+                <span class="wifi"></span>
+                <span class="battery"></span>
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="onboarding-hero">
+                <div class="brand-mark">E</div>
+                <div class="brand-name">E-Kart</div>
+                <div class="icon-ring">
+                  <div class="icon-ring-inner">📋</div>
+                </div>
+              </div>
+              <div class="onboarding-body">
+                <div class="dots">
+                  <span class="dot active"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <h2 style="font-size: 22px; font-weight: 700; text-align: center; margin-bottom: 10px">
+                  Plan smarter grocery runs
+                </h2>
+                <p class="t-muted" style="text-align: center; margin-bottom: 20px">
+                  Build master checklists, track your budget, and capture prices with your camera.
+                </p>
+                <button class="btn-primary">Continue</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          Onboarding — Step 1
+          <div class="screen-route">/(auth)/onboarding/1</div>
+        </div>
+      </article>
+
+      <!-- LOGIN -->
+      <article class="screen-card" id="login">
+        <div class="device">
+          <div class="device-screen">
+            <div class="status-bar">
+              <span class="time">9:41</span>
+              <div class="status-icons">
+                <span class="signal"></span>
+                <span class="wifi"></span>
+                <span class="battery"></span>
+              </div>
+            </div>
+            <div class="screen-body scroll no-tab-pad">
+              <div class="login-wrap">
+                <div class="brand-mark">E</div>
+                <h2 style="font-size: 26px; font-weight: 700; text-align: center">Welcome back</h2>
+                <p class="t-muted" style="text-align: center; margin: 8px 0 24px">
+                  Sign in to sync checklists and join the community.
+                </p>
+
+                <div style="width: 100%">
+                  <p class="field-label t-sm" style="font-size: 14px">Phone or email</p>
+                  <input class="input" type="text" value="maria@email.com" readonly style="margin-bottom: 16px" />
+
+                  <p class="field-label t-sm" style="font-size: 14px">Password</p>
+                  <input class="input" type="password" value="••••••••" readonly style="margin-bottom: 20px" />
+
+                  <button class="btn-primary">Log in</button>
+
+                  <div class="divider">or continue with</div>
+
+                  <button class="social-btn">Continue with Google</button>
+                  <button class="social-btn">Continue with Apple</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          Login
+          <div class="screen-route">/(auth)/login</div>
+        </div>
+      </article>
+
+      <!-- HOME -->
+      <article class="screen-card" id="home">
+        <div class="device">
+          <div class="device-screen">
+            <div class="status-bar">
+              <span class="time">9:41</span>
+              <div class="status-icons">
+                <span class="signal"></span>
+                <span class="wifi"></span>
+                <span class="battery"></span>
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="scroll no-tab-pad">
+                <div style="padding-top: 8px">
+                  <h1 class="t-heading">Hello, Maria K.</h1>
+                  <p class="t-sub">Your shopping analytics and store promos.</p>
+                </div>
+
+                <div class="spend-hero" style="margin-top: 20px">
+                  <div class="label">Spent this month</div>
+                  <div class="amount">₱4,280.00</div>
+                  <div class="hint">Track every palengke and supermarket run in one place.</div>
+                </div>
+
+                <div class="section-head">
+                  <h3>Quick actions</h3>
+                </div>
+                <div class="quick-row">
+                  <div class="quick-tile">
+                    <div class="quick-icon">+</div>
+                    <span>New checklist</span>
+                  </div>
+                  <div class="quick-tile">
+                    <div class="quick-icon">⌕</div>
+                    <span>Compare prices</span>
+                  </div>
+                  <div class="quick-tile">
+                    <div class="quick-icon">💬</div>
+                    <span>Community</span>
+                  </div>
+                </div>
+
+                <div class="section-head">
+                  <h3>Continue shopping</h3>
+                  <a href="#">View all</a>
+                </div>
+                <div class="active-card">
+                  <strong style="font-size: 18px">Weekly Palengke</strong>
+                  <p class="t-muted t-sm" style="margin: 4px 0">12 items · ₱660.00 left</p>
+                  <div class="budget-bar"><div class="budget-fill" style="width: 74%"></div></div>
+                  <p class="t-sm t-muted" style="display: flex; justify-content: space-between">
+                    <span>Estimated: ₱2,500</span>
+                    <span style="color: var(--accent); font-weight: 600">Actual: ₱1,840</span>
+                  </p>
+                  <div class="pill-cta" style="margin-top: 12px">Open checklist →</div>
+                </div>
+
+                <div class="section-head">
+                  <h3>Your shopping snapshot</h3>
+                </div>
+                <div class="analytics-grid">
+                  <div class="analytics-row">
+                    <div class="analytics-cell">
+                      <div class="val">8</div>
+                      <div class="lbl">Checklists done</div>
+                    </div>
+                    <div class="analytics-cell">
+                      <div class="val" style="font-size: 16px">SM Supermarket</div>
+                      <div class="lbl">Top store</div>
+                    </div>
+                  </div>
+                  <div class="analytics-row">
+                    <div class="analytics-cell">
+                      <div class="val">5</div>
+                      <div class="lbl">Forum posts</div>
+                    </div>
+                    <div class="analytics-cell">
+                      <div class="val">₱535</div>
+                      <div class="lbl">Avg trip spend</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="section-head"><h3>Store promos</h3></div>
+                <div class="promo-card">
+                  <div class="store-icon">🏪</div>
+                  <div>
+                    <strong style="font-size: 14px">Puregold — Weekend Sale</strong>
+                    <p class="t-sm t-muted">Up to 20% off rice &amp; canned goods</p>
+                  </div>
+                </div>
+              </div>
+
+              <nav class="tab-bar">
+                <div class="tab active">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/></svg>
+                  Home
+                </div>
+                <div class="tab">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>
+                  Checklist
+                </div>
+                <div class="tab">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18v10a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path d="M3 9l2-4h14l2 4"/></svg>
+                  Catalog
+                </div>
+                <div class="tab">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4v8z"/></svg>
+                  Forum
+                </div>
+                <div class="tab">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+                  Profile
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          Home
+          <div class="screen-route">/(tabs)/</div>
+        </div>
+      </article>
+
+      <!-- CHECKLIST LIST -->
+      <article class="screen-card" id="checklist">
+        <div class="device">
+          <div class="device-screen">
+            <div class="status-bar">
+              <span class="time">9:41</span>
+              <div class="status-icons">
+                <span class="signal"></span>
+                <span class="wifi"></span>
+                <span class="battery"></span>
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="stack-header">
+                <h1 class="t-title">Checklists</h1>
+                <p class="t-sub">Plan and track your grocery runs.</p>
+              </div>
+              <div class="scroll">
+                <div class="list-card">
+                  <h4>Weekly Palengke</h4>
+                  <p class="meta">12 items</p>
+                  <div class="costs">
+                    <span>Estimated: ₱2,500.00</span>
+                    <span class="actual">Actual: ₱1,840.00</span>
+                  </div>
+                </div>
+                <div class="list-card">
+                  <h4>Monthly Stock-up</h4>
+                  <p class="meta">24 items</p>
+                  <div class="costs">
+                    <span>Estimated: ₱5,000.00</span>
+                    <span class="actual">Actual: ₱4,120.00</span>
+                  </div>
+                </div>
+                <div class="list-card">
+                  <h4>Kids Baon Week</h4>
+                  <p class="meta">9 items</p>
+                  <div class="costs">
+                    <span>Estimated: ₱1,200.00</span>
+                    <span class="actual">Actual: ₱980.00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="fab">+</div>
+              <nav class="tab-bar">
+                <div class="tab">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/></svg>
+                  Home
+                </div>
+                <div class="tab active">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>
+                  Checklist
+                </div>
+                <div class="tab">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18v10a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg>
+                  Catalog
+                </div>
+                <div class="tab">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4v8z"/></svg>
+                  Forum
+                </div>
+                <div class="tab">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>
+                  Profile
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          Checklist List
+          <div class="screen-route">/(tabs)/checklist</div>
+        </div>
+      </article>
+
+      <!-- CHECKLIST DETAIL -->
+      <article class="screen-card" id="checklist-detail">
+        <div class="device">
+          <div class="device-screen">
+            <div class="status-bar">
+              <span class="time">9:41</span>
+              <div class="status-icons">
+                <span class="signal"></span>
+                <span class="wifi"></span>
+                <span class="battery"></span>
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="stack-header-row">
+                <span class="back">←</span>
+                <input class="input" value="Weekly Palengke" readonly style="flex: 1; font-weight: 700; color: var(--text-primary)" />
+                <span style="color: var(--accent); font-size: 20px">↗</span>
+              </div>
+              <div class="scroll">
+                <p class="field-label t-sm" style="font-size: 14px; margin-bottom: 6px">Estimated budget (₱)</p>
+                <input class="input" value="2500" readonly style="margin-bottom: 12px; color: var(--text-primary)" />
+                <div class="budget-bar"><div class="budget-fill" style="width: 74%"></div></div>
+                <p class="t-sm t-muted" style="display: flex; justify-content: space-between; margin-bottom: 16px">
+                  <span>Estimated: ₱2,500</span>
+                  <span style="color: var(--accent); font-weight: 600">Actual: ₱1,840</span>
+                </p>
+
+                <p class="t-section">Items</p>
+                <div class="item-row">
+                  <div class="item-thumb">
+                    <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=96&q=80" alt="" />
+                  </div>
+                  <div class="item-info">
+                    <strong>Jasmine Rice 5kg</strong>
+                    <span>Qty 1 · ₱285.00 each</span>
+                  </div>
+                  <div class="item-price">₱285</div>
+                  <div class="camera-btn">📷</div>
+                </div>
+                <div class="item-row">
+                  <div class="item-thumb">
+                    <img src="https://images.unsplash.com/photo-1604503468506-a8da4d780786?w=96&q=80" alt="" />
+                  </div>
+                  <div class="item-info">
+                    <strong>Chicken Breast 1kg</strong>
+                    <span>Qty 2 · ₱195.00 each</span>
+                  </div>
+                  <div class="item-price">₱390</div>
+                  <div class="camera-btn">📷</div>
+                </div>
+                <div class="item-row">
+                  <div class="item-thumb"></div>
+                  <div class="item-info">
+                    <strong>Tomatoes</strong>
+                    <span>Qty 3 · ₱45.00 each</span>
+                  </div>
+                  <div class="item-price">₱135</div>
+                  <div class="camera-btn">📷</div>
+                </div>
+                <div class="add-row">
+                  <input class="input" placeholder="Add item name" />
+                  <button class="add-btn">Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          Checklist Detail
+          <div class="screen-route">/checklist/[id]</div>
+        </div>
+      </article>
+
+      <!-- FAB MENU -->
+      <article class="screen-card" id="fab-menu">
+        <div class="device">
+          <div class="device-screen">
+            <div class="status-bar">
+              <span class="time">9:41</span>
+              <div class="status-icons">
+                <span class="signal"></span>
+                <span class="wifi"></span>
+                <span class="battery"></span>
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="stack-header">
+                <h1 class="t-title">Checklists</h1>
+                <p class="t-sub">Plan and track your grocery runs.</p>
+              </div>
+              <div class="scroll" style="opacity: 0.5">
+                <div class="list-card"><h4>Weekly Palengke</h4></div>
+              </div>
+              <div class="overlay">
+                <div class="fab-menu">
+                  <div class="fab-menu-item">
+                    <div class="fab-menu-icon">📝</div>
+                    <div>
+                      <strong>New checklist</strong>
+                      <span>Start with a blank list and add items yourself.</span>
+                    </div>
+                  </div>
+                  <div class="fab-menu-item">
+                    <div class="fab-menu-icon">✨</div>
+                    <div>
+                      <strong>Generate checklist</strong>
+                      <span>AI builds a Filipino grocery list from your preferences.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="fab">+</div>
+              <nav class="tab-bar">
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/></svg>Home</div>
+                <div class="tab active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>Checklist</div>
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18v10a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg>Catalog</div>
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4v8z"/></svg>Forum</div>
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>Profile</div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          FAB Menu
+          <div class="screen-route">Checklist tab → +</div>
+        </div>
+      </article>
+
+      <!-- GENERATE FORM -->
+      <article class="screen-card" id="generate-form">
+        <div class="device">
+          <div class="device-screen">
+            <div class="status-bar">
+              <span class="time">9:41</span>
+              <div class="status-icons">
+                <span class="signal"></span>
+                <span class="wifi"></span>
+                <span class="battery"></span>
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="stack-header-row">
+                <span class="back">←</span>
+                <span class="stack-title">Generate checklist</span>
+              </div>
+              <div class="scroll">
+                <p class="t-muted" style="margin-bottom: 20px">
+                  Pick a meal style and how many days to shop for.
+                </p>
+
+                <p class="field-label">Category</p>
+                <div class="chip-group">
+                  <span class="chip selected">Ulam</span>
+                  <span class="chip">Kids Meal</span>
+                  <span class="chip">Healthy Snacks</span>
+                  <span class="chip">Desserts</span>
+                  <span class="chip">Vegan</span>
+                </div>
+
+                <p class="field-label" style="margin-top: 24px">Frequency</p>
+                <div class="chip-group">
+                  <span class="chip">3 Days</span>
+                  <span class="chip selected">7 Days</span>
+                </div>
+
+                <p class="field-label" style="margin-top: 24px">Meat types</p>
+                <p class="field-hint">Optional — select all that apply.</p>
+                <div class="chip-group">
+                  <span class="chip selected">Chicken</span>
+                  <span class="chip selected">Pork</span>
+                  <span class="chip">Lamb</span>
+                  <span class="chip">Fish</span>
+                </div>
+
+                <p class="field-label" style="margin-top: 24px">Additional details</p>
+                <p class="field-hint">Optional — allergies, budget, brands, or meals you want included.</p>
+                <textarea class="textarea" readonly>No shellfish, prefer air-fried ulam, need lunchbox ideas for kids.</textarea>
+              </div>
+              <div class="footer-actions">
+                <button class="btn-primary">Generate</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          Generate — Form
+          <div class="screen-route">/checklist/generate</div>
+        </div>
+      </article>
+
+      <!-- GENERATE LOADING -->
+      <article class="screen-card" id="generate-loading">
+        <div class="device">
+          <div class="device-screen">
+            <div class="status-bar">
+              <span class="time">9:41</span>
+              <div class="status-icons">
+                <span class="signal"></span>
+                <span class="wifi"></span>
+                <span class="battery"></span>
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="loading-center">
+                <div class="loader-ring"></div>
+                <p class="loading-msg">Finding Filipino staples…</p>
+                <p class="t-muted" style="margin-top: 8px">Ulam · 7 Days · Chicken, Pork</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          Generate — Loading
+          <div class="screen-route">/checklist/generate/loading</div>
+        </div>
+      </article>
+
+      <!-- GENERATE PREVIEW -->
+      <article class="screen-card" id="generate-preview">
+        <div class="device">
+          <div class="device-screen">
+            <div class="status-bar">
+              <span class="time">9:41</span>
+              <div class="status-icons">
+                <span class="signal"></span>
+                <span class="wifi"></span>
+                <span class="battery"></span>
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="stack-header-row">
+                <span class="back">←</span>
+                <span class="stack-title">Preview</span>
+              </div>
+              <div class="scroll">
+                <h2 style="font-size: 22px; font-weight: 700">7-Day Ulam Plan</h2>
+                <p class="t-muted t-sm" style="margin: 6px 0 12px">7 days · 14 dishes planned</p>
+                <div class="notes-box">
+                  <p class="t-section" style="margin-bottom: 4px">Your notes</p>
+                  <p class="t-sm">No shellfish, prefer air-fried ulam, need lunchbox ideas for kids.</p>
+                </div>
+
+                <p class="t-section" style="margin-top: 20px">Day 1 — Monday</p>
+                <div class="dish-card">
+                  <h4>Chicken Adobo</h4>
+                  <p class="t-section" style="margin-top: 12px; margin-bottom: 0">Ingredients</p>
+                  <div class="ingredient">Chicken leg quarters</div>
+                  <div class="ingredient">Soy sauce</div>
+                  <div class="ingredient">Vinegar</div>
+                  <div class="ingredient">Garlic &amp; bay leaves</div>
+                </div>
+                <div class="dish-card">
+                  <h4>Ginisang Monggo</h4>
+                  <p class="t-section" style="margin-top: 12px; margin-bottom: 0">Ingredients</p>
+                  <div class="ingredient">Mung beans</div>
+                  <div class="ingredient">Malunggay leaves</div>
+                  <div class="ingredient">Pork (optional)</div>
+                </div>
+
+                <p class="t-section" style="margin-top: 16px">Shopping list</p>
+                <p class="t-muted t-sm" style="margin-bottom: 12px">Buy 18 items (24 total qty) · Est. ₱3,450.00</p>
+                <div class="shopping-row">
+                  <div>
+                    <strong>Jasmine Rice 5kg</strong>
+                    <p class="t-sm t-muted">Qty 1 · ₱285.00 each</p>
+                  </div>
+                  <strong>₱285.00</strong>
+                </div>
+                <div class="shopping-row">
+                  <div>
+                    <strong>Chicken leg quarters</strong>
+                    <p class="t-sm t-muted">Qty 2 · ₱195.00 each</p>
+                  </div>
+                  <strong>₱390.00</strong>
+                </div>
+                <div class="shopping-row">
+                  <div>
+                    <strong>Soy sauce 1L</strong>
+                    <p class="t-sm t-muted">Qty 1 · ₱65.00 each</p>
+                  </div>
+                  <strong>₱65.00</strong>
+                </div>
+                <div class="grand-total">
+                  <span>Grand total</span>
+                  <span class="amount">₱3,450.00</span>
+                </div>
+              </div>
+              <div class="footer-actions">
+                <button class="btn-outline">Discard</button>
+                <button class="btn-primary">Save checklist</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          Generate — Preview
+          <div class="screen-route">/checklist/generate/preview</div>
+        </div>
+      </article>
+
+      <!-- CATALOG -->
+      <article class="screen-card" id="catalog">
+        <div class="device">
+          <div class="device-screen">
+            <div class="status-bar">
+              <span class="time">9:41</span>
+              <div class="status-icons">
+                <span class="signal"></span>
+                <span class="wifi"></span>
+                <span class="battery"></span>
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="stack-header">
+                <h1 class="t-title">Catalog</h1>
+                <p class="t-sub">Compare prices across Filipino grocery stores.</p>
+              </div>
+              <div class="scroll">
+                <div class="search-bar">
+                  <span>⌕</span>
+                  <input type="text" value="sardines" readonly />
+                </div>
+                <p class="t-muted t-sm" style="margin-bottom: 12px">4 offers for "sardines"</p>
+
+                <div class="store-row">
+                  <div class="store-initial">P</div>
+                  <div class="info">
+                    <div class="store-name">Puregold</div>
+                    <div class="product">555 Sardines in Tomato 155g</div>
+                    <div class="t-sm t-muted">Updated Jun 10</div>
+                  </div>
+                  <div class="price">₱18.50</div>
+                </div>
+                <div class="store-row">
+                  <div class="store-initial">S</div>
+                  <div class="info">
+                    <div class="store-name">SM Supermarket</div>
+                    <div class="product">555 Sardines in Tomato 155g</div>
+                    <div class="t-sm t-muted">Updated Jun 11</div>
+                  </div>
+                  <div class="price">₱19.75</div>
+                </div>
+                <div class="store-row">
+                  <div class="store-initial">R</div>
+                  <div class="info">
+                    <div class="store-name">Robinsons</div>
+                    <div class="product">555 Sardines in Tomato 155g</div>
+                    <div class="t-sm t-muted">Updated Jun 9</div>
+                  </div>
+                  <div class="price">₱19.00</div>
+                </div>
+                <div class="store-row">
+                  <div class="store-initial">L</div>
+                  <div class="info">
+                    <div class="store-name">Landers</div>
+                    <div class="product">555 Sardines in Tomato 155g</div>
+                    <div class="t-sm t-muted">Updated Jun 8</div>
+                  </div>
+                  <div class="price">₱17.95</div>
+                </div>
+              </div>
+              <nav class="tab-bar">
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/></svg>Home</div>
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>Checklist</div>
+                <div class="tab active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18v10a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg>Catalog</div>
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4v8z"/></svg>Forum</div>
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>Profile</div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          Catalog
+          <div class="screen-route">/(tabs)/catalog</div>
+        </div>
+      </article>
+
+      <!-- FORUM -->
+      <article class="screen-card" id="forum">
+        <div class="device">
+          <div class="device-screen">
+            <div class="status-bar">
+              <span class="time">9:41</span>
+              <div class="status-icons">
+                <span class="signal"></span>
+                <span class="wifi"></span>
+                <span class="battery"></span>
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="stack-header">
+                <h1 class="t-title">Forum</h1>
+                <p class="t-sub">Tips, price updates, and deals from Filipino shoppers.</p>
+              </div>
+              <div class="scroll" style="padding-top: 0">
+                <div class="search-bar" style="margin-top: 0">
+                  <span>⌕</span>
+                  <input type="text" placeholder="Search posts, people, subforums…" readonly />
+                </div>
+                <div class="filter-chips">
+                  <span class="filter-chip active">All</span>
+                  <span class="filter-chip">Palengke Tips</span>
+                  <span class="filter-chip">Price Watch</span>
+                  <span class="filter-chip">Meal Prep</span>
+                </div>
+
+                <div class="forum-post">
+                  <div class="vote-col">
+                    <span style="color: var(--text-muted)">▲</span>
+                    <span class="score active">42</span>
+                    <span style="color: var(--text-muted)">▼</span>
+                  </div>
+                  <div>
+                    <span class="subforum-tag">Palengke Tips</span>
+                    <span class="badge-joined">Joined</span>
+                    <div class="post-title">Best day to buy fresh fish at Divisoria?</div>
+                    <div class="post-body">Tuesday mornings seem cheapest — anyone else notice this?</div>
+                    <div class="post-meta">PalengkePro · 12 comments · 2h ago</div>
+                  </div>
+                </div>
+
+                <div class="forum-post">
+                  <div class="vote-col">
+                    <span style="color: var(--text-muted)">▲</span>
+                    <span class="score">28</span>
+                    <span style="color: var(--text-muted)">▼</span>
+                  </div>
+                  <div>
+                    <span class="subforum-tag">Price Watch</span>
+                    <div class="post-title">Puregold rice sale this weekend</div>
+                    <div class="post-body">Sinandomeng 25kg down to ₱1,150 at select branches.</div>
+                    <div class="post-meta">BudgetMom · 8 comments · 5h ago</div>
+                  </div>
+                </div>
+
+                <div class="forum-post">
+                  <div class="vote-col">
+                    <span style="color: var(--text-muted)">▲</span>
+                    <span class="score">15</span>
+                    <span style="color: var(--text-muted)">▼</span>
+                  </div>
+                  <div>
+                    <span class="subforum-tag">Meal Prep</span>
+                    <div class="post-title">Air fryer ulam ideas under ₱200</div>
+                    <div class="post-body">Chicken pops + java rice combo for the whole family.</div>
+                    <div class="post-meta">AirFryQueen · 5 comments · 1d ago</div>
+                  </div>
+                </div>
+              </div>
+              <div class="fab">+</div>
+              <nav class="tab-bar">
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/></svg>Home</div>
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>Checklist</div>
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18v10a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg>Catalog</div>
+                <div class="tab active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4v8z"/></svg>Forum</div>
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>Profile</div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          Forum Feed
+          <div class="screen-route">/(tabs)/forum</div>
+        </div>
+      </article>
+
+      <!-- PROFILE -->
+      <article class="screen-card" id="profile">
+        <div class="device">
+          <div class="device-screen">
+            <div class="status-bar">
+              <span class="time">9:41</span>
+              <div class="status-icons">
+                <span class="signal"></span>
+                <span class="wifi"></span>
+                <span class="battery"></span>
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="scroll no-tab-pad">
+                <div class="stack-header" style="padding-left: 0; padding-right: 0">
+                  <h1 class="t-title">Profile</h1>
+                  <p class="t-sub">Your alias, activity, and account.</p>
+                </div>
+
+                <div class="profile-head">
+                  <div class="avatar">M</div>
+                  <div>
+                    <h3>Maria K.</h3>
+                    <p class="t-muted t-sm">maria@email.com</p>
+                    <div class="edit-link">Edit alias</div>
+                  </div>
+                </div>
+
+                <p class="t-section">Activity</p>
+                <div class="activity-row">
+                  <div class="activity-stat"><strong>8</strong><span class="t-sm t-muted">Checklists</span></div>
+                  <div class="activity-stat"><strong>5</strong><span class="t-sm t-muted">Posts</span></div>
+                  <div class="activity-stat"><strong>12</strong><span class="t-sm t-muted">Comments</span></div>
+                </div>
+
+                <p style="font-size: 16px; font-weight: 600; margin-bottom: 8px">My forum posts</p>
+                <div class="menu-item" style="border-bottom: 1px solid var(--border); padding: 12px 0">
+                  <span style="flex: 1">SM vs Puregold — where do you shop?</span>
+                  <span class="t-muted">›</span>
+                </div>
+                <div class="menu-item" style="border-bottom: 1px solid var(--border); padding: 12px 0">
+                  <span style="flex: 1">Weekly meal prep on a budget</span>
+                  <span class="t-muted">›</span>
+                </div>
+
+                <p class="t-section" style="margin-top: 20px">Account</p>
+                <div class="menu-item"><span class="icon">⚙</span> Settings</div>
+                <div class="menu-item"><span class="icon">🔒</span> Change password</div>
+                <div class="menu-item"><span class="icon">✉</span> Change email</div>
+                <div class="menu-item"><span class="icon">📞</span> Change phone</div>
+                <div class="menu-item"><span class="icon">🗑</span> Delete account</div>
+              </div>
+              <nav class="tab-bar">
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/></svg>Home</div>
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg>Checklist</div>
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9h18v10a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg>Catalog</div>
+                <div class="tab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4v8z"/></svg>Forum</div>
+                <div class="tab active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>Profile</div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          Profile
+          <div class="screen-route">/(tabs)/profile</div>
+        </div>
+      </article>
+
+      <!-- SETTINGS -->
+      <article class="screen-card" id="settings">
+        <div class="device">
+          <div class="device-screen">
+            <div class="status-bar">
+              <span class="time">9:41</span>
+              <div class="status-icons">
+                <span class="signal"></span>
+                <span class="wifi"></span>
+                <span class="battery"></span>
+              </div>
+            </div>
+            <div class="screen-body">
+              <div class="stack-header-row">
+                <span class="back">←</span>
+                <span class="stack-title">Settings</span>
+              </div>
+              <div class="scroll">
+                <p class="t-muted" style="margin-bottom: 24px">Language and appearance</p>
+
+                <p class="field-label">Language</p>
+                <div class="chip-group" style="margin-bottom: 28px">
+                  <span class="chip selected">English</span>
+                  <span class="chip">Filipino</span>
+                </div>
+
+                <p class="field-label">Theme</p>
+                <div class="chip-group" style="margin-bottom: 28px">
+                  <span class="chip selected">Light</span>
+                  <span class="chip">Dark</span>
+                  <span class="chip">System</span>
+                </div>
+
+                <div style="display: flex; justify-content: space-between; padding-top: 20px; border-top: 1px solid var(--border)">
+                  <span class="t-muted">App version</span>
+                  <strong>1.0.0</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="screen-label">
+          Settings
+          <div class="screen-route">/settings</div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="page-footer">
+      <p>E-Kart HTML mockups · Screenshot individual phones for portfolio or Figma reference</p>
+      <nav class="portfolio-footer-nav portfolio-footer-nav--dark">
+        <a href="index.html">Portfolio home</a>
+        <a href="ekart-promo.html">Promo</a>
+        <a href="ekart-case-study.html">Case study</a>
+        <a href="ekart-system-design.html">System design</a>
+        <a href="ekart-app-flow.html">App flow</a>
+        <a href="ekart.md">Brief</a>
+      </nav>
+    </footer>
+  </body>
+</html>

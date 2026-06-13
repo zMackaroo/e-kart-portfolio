@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Kart — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="portfolio-nav.css" />
+    <style>
+      :root {
+        --accent: #53b175;
+        --bg-deep: #0f1a12;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Poppins', system-ui, sans-serif;
+        background: radial-gradient(circle at 20% 10%, #1b3424 0%, var(--bg-deep) 55%, #081009 100%);
+        color: #fff;
+        min-height: 100vh;
+      }
+
+      .hub {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 56px 24px 80px;
+      }
+
+      .hub-eyebrow {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .hub h1 {
+        font-size: clamp(36px, 6vw, 52px);
+        font-weight: 800;
+        line-height: 1.08;
+        margin-top: 12px;
+      }
+
+      .hub-lead {
+        margin-top: 16px;
+        font-size: 17px;
+        line-height: 1.65;
+        color: rgba(255, 255, 255, 0.82);
+        max-width: 620px;
+      }
+
+      .hub-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 16px;
+        margin-top: 40px;
+      }
+
+      .hub-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 18px;
+        padding: 22px;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.15s, border-color 0.15s, background 0.15s;
+      }
+
+      .hub-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(83, 177, 117, 0.45);
+        background: rgba(83, 177, 117, 0.12);
+      }
+
+      .hub-card-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: rgba(83, 177, 117, 0.2);
+        color: #9fdcb5;
+        display: grid;
+        place-items: center;
+        font-size: 20px;
+        margin-bottom: 14px;
+      }
+
+      .hub-card h2 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .hub-card p {
+        font-size: 14px;
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .hub-card .file {
+        display: inline-block;
+        margin-top: 14px;
+        font-size: 11px;
+        font-family: ui-monospace, monospace;
+        color: rgba(255, 255, 255, 0.45);
+      }
+
+      .hub-note {
+        margin-top: 32px;
+        padding: 16px 18px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.65);
+        line-height: 1.55;
+      }
+
+      footer {
+        text-align: center;
+        padding: 24px;
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="portfolio-nav">
+      <a class="portfolio-nav-brand" href="index.html">E-Kart Portfolio</a>
+      <div class="portfolio-nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="ekart-promo.html">Promo</a>
+        <a href="ekart-case-study.html">Case Study</a>
+        <a href="ekart-mockups.html">Mockups</a>
+        <a href="ekart-system-design.html">System Design</a>
+        <a href="ekart-app-flow.html">App Flow</a>
+        <a href="ekart.md">Brief</a>
+      </div>
+    </nav>
+
+    <main class="hub">
+      <p class="hub-eyebrow">Filipino grocery · Expo · Phase 1</p>
+      <h1>E-Kart Portfolio</h1>
+      <p class="hub-lead">
+        All portfolio assets for the E-Kart mobile app — promo graphics, case study, screen mockups,
+        system design, app flow diagrams, and the original product brief.
+      </p>
+
+      <div class="hub-grid">
+        <a class="hub-card" href="ekart-promo.html">
+          <div class="hub-card-icon">▣</div>
+          <h2>Promo mockup</h2>
+          <p>Three-panel portfolio graphic with phone previews — ideal for LinkedIn, Behance, or cover images.</p>
+          <span class="file">ekart-promo.html</span>
+        </a>
+
+        <a class="hub-card" href="ekart-case-study.html">
+          <div class="hub-card-icon">✎</div>
+          <h2>Case study</h2>
+          <p>Long-form project write-up: problem, goals, architecture, AI generate flow, and Phase 2 roadmap.</p>
+          <span class="file">ekart-case-study.html</span>
+        </a>
+
+        <a class="hub-card" href="ekart-mockups.html">
+          <div class="hub-card-icon">▤</div>
+          <h2>Screen mockups</h2>
+          <p>13 HTML phone frames for every major Phase 1 screen — screenshot for Figma or portfolio galleries.</p>
+          <span class="file">ekart-mockups.html</span>
+        </a>
+
+        <a class="hub-card" href="ekart-system-design.html">
+          <div class="hub-card-icon">⬡</div>
+          <h2>System design</h2>
+          <p>Architecture diagrams, MVVM layers, data flows, storage model, and Phase 2 API boundaries.</p>
+          <span class="file">ekart-system-design.html</span>
+        </a>
+
+        <a class="hub-card" href="ekart-app-flow.html">
+          <div class="hub-card-icon">↝</div>
+          <h2>App flow</h2>
+          <p>User journeys, route tree, checklist / catalog / forum flows, and AI generate navigation.</p>
+          <span class="file">ekart-app-flow.html</span>
+        </a>
+
+        <a class="hub-card" href="ekart.md">
+          <div class="hub-card-icon">📄</div>
+          <h2>Product brief</h2>
+          <p>Original app description, screen list, features, tech stack, and architecture notes.</p>
+          <span class="file">ekart.md</span>
+        </a>
+      </div>
+
+      <p class="hub-note">
+        Start with <strong>Promo</strong> for social posts, <strong>Case Study</strong> for the write-up,
+        <strong>System Design</strong> and <strong>App Flow</strong> for technical interviews, and
+        <strong>Mockups</strong> for screen captures. Open
+        <code style="color: #9fdcb5">index.html</code> as the entry point for the whole set.
+      </p>
+    </main>
+
+    <footer>
+      <p>E-Kart · Expo SDK 54 · React Native · TypeScript</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Kart — App Flow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="portfolio-nav.css" />
+    <link rel="stylesheet" href="portfolio-docs.css" />
+  </head>
+  <body>
+    <nav class="portfolio-nav">
+      <a class="portfolio-nav-brand" href="index.html">E-Kart Portfolio</a>
+      <div class="portfolio-nav-links">
+        <a href="index.html">Home</a>
+        <a href="ekart-promo.html">Promo</a>
+        <a href="ekart-case-study.html">Case Study</a>
+        <a href="ekart-mockups.html">Mockups</a>
+        <a href="ekart-system-design.html">System Design</a>
+        <a href="ekart-app-flow.html" class="active">App Flow</a>
+        <a href="ekart.md">Brief</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Navigation · User Journeys</p>
+        <h1>App Flow</h1>
+        <p class="hero-lead">
+          How users move through E-Kart — from onboarding and login to checklists, catalog, forum,
+          profile, and the AI generate checklist flow.
+        </p>
+        <div class="meta">
+          <span class="pill">5 tabs</span>
+          <span class="pill">44 routes</span>
+          <span class="pill">Phase 1 specs 01–11</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <section id="entry">
+        <h2>Entry flow</h2>
+        <p class="lead">
+          <code>app/index.tsx</code> is the auth gate. Logged-in users land on Home; new users see
+          onboarding then login.
+        </p>
+        <div class="diagram">
+          <div class="flow-chart">
+            <div class="flow-node start">App launch</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node decision">Session?</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node">Onboarding 1-2-3</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node">Login</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node accent start">Home tab</div>
+          </div>
+          <p class="flow-label">If session exists, skip directly to Home tab</p>
+        </div>
+        <div class="flow">
+          <div class="flow-step">
+            <strong>1. Onboarding</strong>
+            <span>3 slides introducing checklists, catalog, and community — <code>/(auth)/onboarding/[step]</code></span>
+          </div>
+          <div class="flow-step">
+            <strong>2. Login</strong>
+            <span>Email/phone + password, or Google / Apple — <code>/(auth)/login</code></span>
+          </div>
+          <div class="flow-step">
+            <strong>3. Home</strong>
+            <span>Analytics, active checklist, quick actions, promos — <code>/(tabs)/</code></span>
+          </div>
+        </div>
+      </section>
+
+      <section id="tabs">
+        <h2>Main navigation</h2>
+        <p>Five bottom tabs. Settings is reached from Profile, not a tab.</p>
+        <div class="diagram">
+          <div class="flow-chart">
+            <div class="flow-node start">Home</div>
+            <div class="flow-node start">Checklist</div>
+            <div class="flow-node start">Catalog</div>
+            <div class="flow-node start">Forum</div>
+            <div class="flow-node start">Profile</div>
+          </div>
+          <div class="arch-arrow-down">↓</div>
+          <div class="flow-chart">
+            <div class="flow-node">Settings</div>
+            <div class="flow-node">Edit alias</div>
+            <div class="flow-node">Account forms</div>
+          </div>
+          <p class="flow-label">Profile tab opens settings and account sub-screens</p>
+        </div>
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Tab</th>
+              <th>Route</th>
+              <th>Primary actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Home</td>
+              <td><code>/(tabs)/</code></td>
+              <td>Spend analytics, continue checklist, quick links</td>
+            </tr>
+            <tr>
+              <td>Checklist</td>
+              <td><code>/(tabs)/checklist</code></td>
+              <td>List checklists, FAB for new or generate</td>
+            </tr>
+            <tr>
+              <td>Catalog</td>
+              <td><code>/(tabs)/catalog</code></td>
+              <td>Search items, compare store prices</td>
+            </tr>
+            <tr>
+              <td>Forum</td>
+              <td><code>/(tabs)/forum</code></td>
+              <td>Feed, votes, search, create post</td>
+            </tr>
+            <tr>
+              <td>Profile</td>
+              <td><code>/(tabs)/profile</code></td>
+              <td>Alias, activity, forum history, account</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="routes">
+        <h2>Route tree</h2>
+        <pre class="route-tree">app/
+├── index.tsx                 # Auth redirect
+├── (auth)/
+│   ├── onboarding/[step].tsx
+│   └── login.tsx
+├── (tabs)/
+│   ├── index.tsx             # Home
+│   ├── checklist.tsx
+│   ├── catalog.tsx
+│   ├── forum.tsx
+│   └── profile.tsx
+├── checklist/
+│   ├── [id].tsx              # Detail
+│   ├── [id]/capture.tsx      # Camera + OCR
+│   ├── create.tsx            # Blank checklist
+│   └── generate/
+│       ├── index.tsx         # Form
+│       ├── loading.tsx       # Lottie + status text
+│       └── preview.tsx       # Save | Discard
+├── forum/
+│   ├── post/[id].tsx
+│   ├── create.tsx
+│   ├── subforums.tsx
+│   └── subforum/[slug].tsx
+├── settings/index.tsx
+└── profile/
+    ├── edit-alias.tsx
+    ├── change-password.tsx
+    ├── change-email.tsx
+    ├── change-phone.tsx
+    └── delete-account.tsx</pre>
+      </section>
+
+      <section id="checklist">
+        <h2>Checklist flows</h2>
+
+        <h3>A — Create blank checklist</h3>
+        <div class="diagram">
+          <div class="flow-chart">
+            <div class="flow-node">Checklist tab</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node">+ FAB</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node decision">Action sheet</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node">New checklist</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node accent">checklist/create</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node accent">checklist/[id]</div>
+          </div>
+        </div>
+
+        <h3>B — Add item with camera + OCR</h3>
+        <div class="flow">
+          <div class="flow-step">
+            <strong>Open checklist detail</strong>
+            <span>Tap a master checklist — <code>/checklist/[id]</code></span>
+          </div>
+          <div class="flow-step">
+            <strong>Capture item</strong>
+            <span>Tap camera on item row — <code>/checklist/[id]/capture</code></span>
+          </div>
+          <div class="flow-step">
+            <strong>OCR + quantity</strong>
+            <span>Mock OCR extracts price; user sets quantity and saves with image + price tag.</span>
+          </div>
+          <div class="flow-step">
+            <strong>Budget updates</strong>
+            <span><code>actualCost</code> recomputes. Swipe left on item for edit or delete.</span>
+          </div>
+        </div>
+
+        <h3>C — AI generate checklist</h3>
+        <div class="diagram">
+          <div class="flow-chart">
+            <div class="flow-node">+ FAB</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node">Generate</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node">Form</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node">Loading</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node">Preview</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node accent">Save to checklist</div>
+          </div>
+          <p class="flow-label">Discard returns to checklist tab without persisting</p>
+        </div>
+        <table class="doc-table">
+          <thead>
+            <tr>
+              <th>Step</th>
+              <th>Route</th>
+              <th>What happens</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Form</td>
+              <td><code>/checklist/generate</code></td>
+              <td>Category, frequency, meat types, notes</td>
+            </tr>
+            <tr>
+              <td>Loading</td>
+              <td><code>/checklist/generate/loading</code></td>
+              <td>Lottie spinner, cycling status, auto-runs generation</td>
+            </tr>
+            <tr>
+              <td>Preview</td>
+              <td><code>/checklist/generate/preview</code></td>
+              <td>Meal plan by day, shopping list, grand total</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="catalog">
+        <h2>Catalog flow</h2>
+        <div class="flow">
+          <div class="flow-step">
+            <strong>Open Catalog tab</strong>
+            <span>Empty state prompts search — <code>/(tabs)/catalog</code></span>
+          </div>
+          <div class="flow-step">
+            <strong>Search item</strong>
+            <span>Query returns rows per store (SM, Puregold, Robinsons, etc.)</span>
+          </div>
+          <div class="flow-step">
+            <strong>Compare prices</strong>
+            <span>StorePriceRow shows store, product match, PHP price, last updated.</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="forum">
+        <h2>Forum flow</h2>
+        <div class="diagram">
+          <div class="flow-chart">
+            <div class="flow-node start">Forum feed</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node">Post detail</div>
+            <div class="flow-node">Search</div>
+            <div class="flow-node">Create post</div>
+            <div class="flow-node">Subforums</div>
+          </div>
+        </div>
+        <ul class="feature-list">
+          <li>
+            <div>
+              <strong>Vote and comment</strong>
+              <span>Upvote/downvote on feed; open post for full thread and replies.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Subforum filters</strong>
+              <span>Filter chips on feed; join subforums from search or subforum list.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Alias identity</strong>
+              <span>Forum shows profile alias, not email or legal name.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="profile">
+        <h2>Profile &amp; settings</h2>
+        <div class="diagram">
+          <div class="flow-chart">
+            <div class="flow-node start">Profile tab</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node">Settings</div>
+            <div class="flow-node">Edit alias</div>
+            <div class="flow-node">Account forms</div>
+          </div>
+          <div class="arch-arrow-down">↓</div>
+          <div class="flow-chart">
+            <div class="flow-node">Language EN / FIL</div>
+            <div class="flow-node">Light / Dark / System</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="journey">
+        <h2>Core user journey</h2>
+        <div class="diagram">
+          <div class="flow-chart">
+            <div class="flow-node start">Onboard + Login</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node">Home</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node">Checklist</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node">Camera OCR</div>
+            <span class="flow-connector">→</span>
+            <div class="flow-node accent">Track budget</div>
+          </div>
+          <div class="arch-arrow-down">↘ also from Home</div>
+          <div class="flow-chart">
+            <div class="flow-node">Catalog compare</div>
+            <div class="flow-node">Forum community</div>
+            <div class="flow-node">Profile + Settings</div>
+          </div>
+        </div>
+        <div class="cross-links">
+          <a href="ekart-system-design.html">View system design</a>
+          <a href="ekart-mockups.html">Screen mockups</a>
+          <a href="ekart-case-study.html">Case study</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>E-Kart app flow · Phase 1 complete</p>
+      <nav class="portfolio-footer-nav portfolio-footer-nav--dark">
+        <a href="index.html">Portfolio home</a>
+        <a href="ekart-system-design.html">System design</a>
+        <a href="ekart-mockups.html">Mockups</a>
+        <a href="ekart-case-study.html">Case study</a>
+      </nav>
+    </footer>
+  </body>
+</html>

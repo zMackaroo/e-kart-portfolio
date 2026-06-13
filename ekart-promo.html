@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Kart — Portfolio Promo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="portfolio-nav.css" />
+    <style>
+      :root {
+        --accent: #53b175;
+        --accent-dark: #3d9460;
+        --accent-light: #7bc995;
+        --bg-deep: #0f1a12;
+        --bg-card: #53b175;
+        --bg-card-alt: #449a65;
+        --white: #ffffff;
+        --muted: rgba(255, 255, 255, 0.82);
+        --soft: rgba(255, 255, 255, 0.14);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: radial-gradient(
+          circle at 20% 20%,
+          #1b3424 0%,
+          var(--bg-deep) 55%,
+          #081009 100%
+        );
+        font-family: "Poppins", system-ui, sans-serif;
+      }
+
+      .promo-wrap {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px;
+      }
+
+      .promo {
+        position: relative;
+        width: min(1180px, 100%);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        padding: 28px;
+      }
+
+      .promo::before,
+      .promo::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+        pointer-events: none;
+      }
+
+      .promo::before {
+        width: 220px;
+        height: 220px;
+        top: -40px;
+        left: 8%;
+      }
+
+      .promo::after {
+        width: 180px;
+        height: 180px;
+        bottom: -30px;
+        right: 10%;
+      }
+
+      .panel {
+        position: relative;
+        overflow: hidden;
+        border-radius: 28px;
+        background: linear-gradient(
+          165deg,
+          var(--accent-light) 0%,
+          var(--accent) 45%,
+          var(--accent-dark) 100%
+        );
+        color: var(--white);
+        min-height: 620px;
+        padding: 28px 24px 24px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .panel:nth-child(2) {
+        background: linear-gradient(
+          165deg,
+          #5fbf84 0%,
+          var(--accent) 50%,
+          #358052 100%
+        );
+      }
+
+      .panel:nth-child(3) {
+        background: linear-gradient(
+          165deg,
+          var(--accent) 0%,
+          #46986a 55%,
+          #2f7349 100%
+        );
+      }
+
+      .bubble {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .bubble.a {
+        width: 120px;
+        height: 120px;
+        top: 18px;
+        right: -30px;
+      }
+
+      .bubble.b {
+        width: 90px;
+        height: 90px;
+        bottom: 80px;
+        left: -20px;
+      }
+
+      .brand {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.9;
+      }
+
+      h1 {
+        font-size: 34px;
+        line-height: 1.1;
+        font-weight: 800;
+        margin-top: 8px;
+      }
+
+      .subtitle {
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 1.55;
+        color: var(--muted);
+        max-width: 280px;
+      }
+
+      .phone-wrap {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 18px 0;
+      }
+
+      .phone {
+        width: 210px;
+        height: 420px;
+        border-radius: 32px;
+        background: #111;
+        padding: 10px;
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+        transform: rotate(-8deg);
+      }
+
+      .phone.right {
+        transform: rotate(8deg);
+      }
+
+      .phone.center {
+        transform: none;
+        width: 190px;
+        height: 380px;
+      }
+
+      .screen {
+        width: 100%;
+        height: 100%;
+        border-radius: 24px;
+        background: #fff;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .status {
+        height: 28px;
+        background: #fff;
+      }
+
+      .ui-head {
+        padding: 12px 14px 8px;
+      }
+
+      .ui-head h2 {
+        color: #111;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .ui-head p {
+        color: #8e8e93;
+        font-size: 11px;
+        margin-top: 4px;
+      }
+
+      .ui-card {
+        margin: 8px 12px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        background: #f5f5f5;
+      }
+
+      .ui-card strong {
+        display: block;
+        color: #111;
+        font-size: 12px;
+      }
+
+      .ui-card span {
+        color: #8e8e93;
+        font-size: 10px;
+      }
+
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        padding: 0 12px;
+      }
+
+      .chip {
+        font-size: 9px;
+        font-weight: 600;
+        padding: 5px 8px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .chip.off {
+        background: #ececec;
+        color: #444;
+      }
+
+      .dish {
+        margin: 10px 12px;
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid #e5e5e5;
+      }
+
+      .dish h3 {
+        color: #111;
+        font-size: 12px;
+      }
+
+      .dish ul {
+        margin-top: 6px;
+        padding-left: 14px;
+        color: #555;
+        font-size: 9px;
+        line-height: 1.45;
+      }
+
+      .total {
+        margin: auto 12px 12px;
+        padding-top: 10px;
+        border-top: 1px solid #e5e5e5;
+        display: flex;
+        justify-content: space-between;
+        color: #111;
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .total span:last-child {
+        color: var(--accent);
+      }
+
+      .features {
+        margin-top: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .feature {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .check {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.22);
+        display: grid;
+        place-items: center;
+        flex-shrink: 0;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .feature p {
+        font-size: 13px;
+        line-height: 1.45;
+        color: var(--muted);
+      }
+
+      .feature strong {
+        display: block;
+        color: var(--white);
+        font-size: 14px;
+        margin-bottom: 2px;
+      }
+
+      .center-stage {
+        flex: 1;
+        display: grid;
+        place-items: center;
+        margin-top: 12px;
+      }
+
+      .orbit {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        background: rgba(15, 26, 18, 0.35);
+        display: grid;
+        place-items: center;
+      }
+
+      .cta-row {
+        margin-top: auto;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .qr {
+        width: 88px;
+        height: 88px;
+        border-radius: 12px;
+        background: #fff;
+        padding: 8px;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        gap: 2px;
+      }
+
+      .qr i {
+        background: #111;
+        border-radius: 1px;
+      }
+
+      .qr i.off {
+        background: transparent;
+      }
+
+      .cta-row h3 {
+        font-size: 28px;
+        font-weight: 800;
+        line-height: 1;
+      }
+
+      .cta-row p {
+        margin-top: 6px;
+        font-size: 12px;
+        color: var(--muted);
+        max-width: 180px;
+        line-height: 1.45;
+      }
+
+      .stack {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 14px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.16);
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      @media (max-width: 980px) {
+        .promo {
+          grid-template-columns: 1fr;
+        }
+
+        .panel {
+          min-height: auto;
+        }
+
+        .phone,
+        .phone.center {
+          transform: none;
+        }
+      }
+
+      @media print {
+        body {
+          background: #fff;
+          padding: 0;
+        }
+
+        .promo {
+          width: 100%;
+          gap: 12px;
+          padding: 12px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="portfolio-nav">
+      <a class="portfolio-nav-brand" href="index.html">E-Kart Portfolio</a>
+      <div class="portfolio-nav-links">
+        <a href="index.html">Home</a>
+        <a href="ekart-promo.html" class="active">Promo</a>
+        <a href="ekart-case-study.html">Case Study</a>
+        <a href="ekart-mockups.html">Mockups</a>
+        <a href="ekart-system-design.html">System Design</a>
+        <a href="ekart-app-flow.html">App Flow</a>
+        <a href="ekart.md">Brief</a>
+      </div>
+    </nav>
+    <div class="promo-wrap">
+    <main class="promo" aria-label="E-Kart portfolio promo">
+      <!-- Panel 1: Hero -->
+      <section class="panel">
+        <span class="bubble a"></span>
+        <span class="bubble b"></span>
+        <p class="brand">Filipino grocery app</p>
+        <h1>E-Kart</h1>
+        <p class="subtitle">
+          Plan palengke runs, compare store prices, and generate AI meal
+          checklists built for Filipino kitchens.
+        </p>
+
+        <div class="phone-wrap">
+          <div class="phone">
+            <div class="screen">
+              <div class="status"></div>
+              <div class="ui-head">
+                <h2>Home</h2>
+                <p>Analytics &amp; store promos</p>
+              </div>
+              <div class="ui-card">
+                <strong>₱4,280 spent this month</strong>
+                <span>Track every grocery trip</span>
+              </div>
+              <div class="ui-card">
+                <strong>Weekly Grocery</strong>
+                <span>Continue shopping · 8 items</span>
+              </div>
+              <div class="ui-card" style="background: #f1f8f1">
+                <strong>SM · Puregold · Robinsons</strong>
+                <span>Compare prices nearby</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stack">
+          <span class="pill">Expo · React Native · TypeScript</span>
+          <span class="pill">Zustand · MVVM · Gluestack UI</span>
+        </div>
+      </section>
+
+      <!-- Panel 2: Features -->
+      <section class="panel">
+        <span class="bubble a"></span>
+        <h1>Features</h1>
+
+        <div class="features">
+          <div class="feature">
+            <div class="check">✓</div>
+            <div>
+              <strong>AI generate checklist</strong>
+              <p>
+                Category, frequency, meat types, and notes → meal plan +
+                shopping list.
+              </p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="check">✓</div>
+            <div>
+              <strong>Master checklists</strong>
+              <p>
+                Budget tracking, swipe edit/delete, camera capture with mock
+                OCR.
+              </p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="check">✓</div>
+            <div>
+              <strong>Multi-store catalog</strong>
+              <p>
+                Search Filipino groceries across SM, Puregold, Robinsons, and
+                more.
+              </p>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="check">✓</div>
+            <div>
+              <strong>Community forum</strong>
+              <p>Posts, votes, subforums, search, and media attachments.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="center-stage">
+          <div class="orbit">
+            <div class="phone center">
+              <div class="screen">
+                <div class="status"></div>
+                <div class="ui-head">
+                  <h2>Generate</h2>
+                  <p>Ulam · 3 Days</p>
+                </div>
+                <div class="chip-row">
+                  <span class="chip">Ulam</span>
+                  <span class="chip off">Vegan</span>
+                  <span class="chip">Chicken</span>
+                  <span class="chip">Fish</span>
+                </div>
+                <div class="dish">
+                  <h3>Day 1 · Chicken Tinola</h3>
+                  <ul>
+                    <li>Manok</li>
+                    <li>Sitaw</li>
+                    <li>Luya</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel 3: CTA -->
+      <section class="panel">
+        <span class="bubble b"></span>
+        <p class="brand">Portfolio preview</p>
+        <h1>Shop smarter</h1>
+        <p class="subtitle">
+          Preview before save — dishes by day, then a full shopping list with
+          grand total.
+        </p>
+
+        <div class="phone-wrap">
+          <div class="phone right">
+            <div class="screen">
+              <div class="status"></div>
+              <div class="ui-head">
+                <h2>Preview</h2>
+                <p>3 days · 3 dishes planned</p>
+              </div>
+              <div class="dish">
+                <h3>Day 2 · Pork Sinigang</h3>
+                <ul>
+                  <li>Baboy kasim</li>
+                  <li>Kamatis</li>
+                  <li>Sibuyas</li>
+                </ul>
+              </div>
+              <div class="ui-card">
+                <strong>Shopping list</strong>
+                <span>10 items · Buy once for all dishes</span>
+              </div>
+              <div class="total">
+                <span>Grand total</span>
+                <span>₱1,236</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <div class="qr" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i> <i></i
+            ><i class="off"></i><i></i><i class="off"></i><i></i
+            ><i class="off"></i><i></i> <i></i><i></i><i class="off"></i><i></i
+            ><i></i><i></i><i></i> <i></i><i class="off"></i><i></i><i></i
+            ><i class="off"></i><i></i><i></i> <i></i><i></i><i></i
+            ><i class="off"></i><i></i><i></i><i></i> <i></i><i></i
+            ><i class="off"></i><i></i><i class="off"></i><i></i><i></i> <i></i
+            ><i class="off"></i><i></i><i></i><i></i><i class="off"></i><i></i>
+            <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          </div>
+          <div>
+            <h3>Explore the portfolio</h3>
+            <p>
+              <a href="ekart-case-study.html" style="color: #fff; font-weight: 600">Case study</a>
+              ·
+              <a href="ekart-app-flow.html" style="color: #fff; font-weight: 600">App flow</a>
+              ·
+              <a href="ekart-system-design.html" style="color: #fff; font-weight: 600">System design</a>
+              ·
+              <a href="ekart-mockups.html" style="color: #fff; font-weight: 600">Screen mockups</a>
+            </p>
+            <p style="margin-top: 8px; opacity: 0.85">
+              Replace the QR with your GitHub or live demo URL before publishing.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    </div>
+  </body>
+</html>

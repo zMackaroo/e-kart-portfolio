@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Kart — Case Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="portfolio-nav.css" />
+    <style>
+      :root {
+        --accent: #53b175;
+        --accent-dark: #358052;
+        --accent-soft: #f1f8f1;
+        --bg-deep: #0f1a12;
+        --text: #11181c;
+        --text-muted: #5c6670;
+        --border: #e5e5e5;
+        --surface: #ffffff;
+        --surface-alt: #f7f9f8;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: 'Poppins', system-ui, sans-serif;
+        color: var(--text);
+        background: var(--surface);
+        line-height: 1.6;
+      }
+
+      a {
+        color: var(--accent-dark);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .hero {
+        background: radial-gradient(circle at 15% 10%, #1b3424 0%, var(--bg-deep) 60%, #081009 100%);
+        color: #fff;
+        padding: 64px 24px 72px;
+      }
+
+      .hero-inner,
+      .content {
+        max-width: 820px;
+        margin: 0 auto;
+      }
+
+      .eyebrow {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        opacity: 0.85;
+      }
+
+      .hero h1 {
+        font-size: clamp(36px, 6vw, 52px);
+        font-weight: 800;
+        line-height: 1.08;
+        margin-top: 12px;
+      }
+
+      .hero-lead {
+        margin-top: 16px;
+        font-size: 18px;
+        line-height: 1.65;
+        color: rgba(255, 255, 255, 0.86);
+        max-width: 640px;
+      }
+
+      .meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 28px;
+      }
+
+      .pill {
+        font-size: 12px;
+        font-weight: 600;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .content {
+        padding: 56px 24px 80px;
+      }
+
+      section + section {
+        margin-top: 56px;
+      }
+
+      h2 {
+        font-size: 28px;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 16px;
+      }
+
+      h3 {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      p {
+        color: var(--text-muted);
+        margin-bottom: 14px;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      .lead {
+        font-size: 17px;
+        color: var(--text);
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 20px;
+      }
+
+      .card {
+        background: var(--surface-alt);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 20px;
+      }
+
+      .card p {
+        font-size: 14px;
+      }
+
+      .stat-row {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      .stat {
+        background: var(--accent-soft);
+        border-radius: 14px;
+        padding: 16px;
+        text-align: center;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 24px;
+        font-weight: 800;
+        color: var(--accent-dark);
+      }
+
+      .stat span {
+        display: block;
+        margin-top: 4px;
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      .feature-list {
+        list-style: none;
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .feature-list li {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 16px;
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        background: var(--surface);
+      }
+
+      .feature-list li::before {
+        content: '✓';
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        display: grid;
+        place-items: center;
+        margin-top: 2px;
+      }
+
+      .feature-list strong {
+        display: block;
+        color: var(--text);
+        font-size: 15px;
+        margin-bottom: 4px;
+      }
+
+      .feature-list span {
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+
+      .flow {
+        margin-top: 20px;
+        border-left: 3px solid var(--accent);
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .flow-step strong {
+        display: block;
+        color: var(--text);
+        font-size: 15px;
+      }
+
+      .flow-step span {
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+
+      .tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .tech span {
+        font-size: 12px;
+        font-weight: 600;
+        padding: 8px 12px;
+        border-radius: 10px;
+        background: var(--surface-alt);
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+
+      .quote {
+        margin-top: 24px;
+        padding: 24px;
+        border-radius: 16px;
+        background: var(--accent-soft);
+        border: 1px solid #d8eadc;
+      }
+
+      .quote p {
+        color: var(--text);
+        font-size: 16px;
+        font-style: italic;
+      }
+
+      .quote cite {
+        display: block;
+        margin-top: 10px;
+        font-size: 13px;
+        color: var(--text-muted);
+        font-style: normal;
+      }
+
+      .next-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 20px;
+      }
+
+      .next-grid .card strong {
+        display: block;
+        color: var(--accent-dark);
+        margin-bottom: 6px;
+      }
+
+      footer {
+        background: var(--bg-deep);
+        color: rgba(255, 255, 255, 0.8);
+        padding: 32px 24px;
+        text-align: center;
+        font-size: 14px;
+      }
+
+      footer a {
+        color: #9fdcb5;
+      }
+
+      @media (max-width: 720px) {
+        .grid-2,
+        .stat-row,
+        .next-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media print {
+        .hero {
+          padding: 32px 24px;
+        }
+
+        footer {
+          background: #fff;
+          color: #444;
+          border-top: 1px solid var(--border);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="portfolio-nav">
+      <a class="portfolio-nav-brand" href="index.html">E-Kart Portfolio</a>
+      <div class="portfolio-nav-links">
+        <a href="index.html">Home</a>
+        <a href="ekart-promo.html">Promo</a>
+        <a href="ekart-case-study.html" class="active">Case Study</a>
+        <a href="ekart-mockups.html">Mockups</a>
+        <a href="ekart-system-design.html">System Design</a>
+        <a href="ekart-app-flow.html">App Flow</a>
+        <a href="ekart.md">Brief</a>
+      </div>
+    </nav>
+    <header class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Product Design · Mobile Development · Case Study</p>
+        <h1>E-Kart</h1>
+        <p class="hero-lead">
+          A Filipino grocery app that helps households plan smarter palengke runs — with budget-aware
+          checklists, multi-store price comparison, community tips, and AI-generated meal plans.
+        </p>
+        <div class="meta">
+          <span class="pill">Role: Product &amp; Engineering</span>
+          <span class="pill">Platform: iOS &amp; Android</span>
+          <span class="pill">Stack: Expo · React Native · TypeScript</span>
+          <span class="pill">Phase: 1 complete (11 specs)</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <section id="overview">
+        <h2>Overview</h2>
+        <p class="lead">
+          Filipino grocery shopping is rarely a single-store, single-list errand. Families juggle
+          wet markets, supermarkets, budgets, and meal planning — often across multiple apps or
+          handwritten lists. E-Kart consolidates that workflow into one mobile experience built
+          specifically for the Philippine context.
+        </p>
+        <p>
+          Phase 1 delivers a fully navigable frontend with mock data and services, spec-driven
+          development, and clear boundaries so NestJS, FastAPI, and MongoDB can plug in during Phase
+          2 without rewriting the UI layer.
+        </p>
+
+        <div class="stat-row">
+          <div class="stat"><strong>11</strong><span>Frontend specs shipped</span></div>
+          <div class="stat"><strong>5</strong><span>Core tabs</span></div>
+          <div class="stat"><strong>2</strong><span>Languages (EN / FIL)</span></div>
+          <div class="stat"><strong>3</strong><span>Theme modes</span></div>
+        </div>
+      </section>
+
+      <section id="problem">
+        <h2>Problem</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>For shoppers</h3>
+            <p>
+              Lists live on paper or chat threads. Prices vary by store with no easy comparison.
+              Meal planning and grocery buying are disconnected, leading to repeat trips and budget
+              surprises.
+            </p>
+          </div>
+          <div class="card">
+            <h3>For the product</h3>
+            <p>
+              Generic grocery templates ignore Filipino categories (ulam, palengke staples) and
+              local store names. A sustainable architecture must support OCR, AI generation, and
+              community content without becoming a monolith.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="goals">
+        <h2>Goals</h2>
+        <ul class="feature-list">
+          <li>
+            <div>
+              <strong>Plan with confidence</strong>
+              <span>Master checklists with estimated vs actual spend, swipe actions, and share.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Compare before you buy</strong>
+              <span>Search catalog items across SM, Puregold, Robinsons, and more.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Learn from the community</strong>
+              <span>Reddit-style forum with votes, subforums, media, and alias-based identity.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Generate Filipino meal plans</strong>
+              <span>AI-assisted grocery lists by category, frequency, meat type, and custom notes.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="solution">
+        <h2>Solution</h2>
+        <p>
+          E-Kart is organized around five tabs — Home, Checklist, Catalog, Forum, and Profile —
+          with settings reachable from profile. Each major flow follows MVVM: thin Expo Router
+          screens, ViewModels for logic, Zustand stores for state, and mock services that mirror
+          future API contracts.
+        </p>
+
+        <ul class="feature-list">
+          <li>
+            <div>
+              <strong>Home</strong>
+              <span>Monthly spend snapshot, active checklist shortcut, analytics cards, store promos.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Checklist</strong>
+              <span>Create lists, capture items with camera + mock OCR, track budget, swipe edit/delete.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Catalog</strong>
+              <span>Search-driven price rows per store with PHP formatting.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Forum</strong>
+              <span>Feed filters, search, post detail with media, subforum drawer, create post flow.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Profile &amp; Settings</strong>
+              <span>Alias, activity stats, forum history, account forms, English/Filipino, light/dark/system theme.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="featured">
+        <h2>Featured flow: AI Generate Checklist</h2>
+        <p>
+          The most differentiated Phase 1 feature. Instead of starting from a blank list, users pick
+          a meal category (Ulam, Kids Meal, Healthy Snacks, Desserts, Vegan), a planning window (3 or
+          7 days), optional meat types, and free-text notes (e.g. allergies, air-fryer preferences).
+        </p>
+
+        <div class="flow">
+          <div class="flow-step">
+            <strong>1. Configure</strong>
+            <span>Category chips, frequency, multiselect meat types, additional details textarea.</span>
+          </div>
+          <div class="flow-step">
+            <strong>2. Generate</strong>
+            <span>Lottie loading screen with cycling status copy while a mock service builds the plan.</span>
+          </div>
+          <div class="flow-step">
+            <strong>3. Preview</strong>
+            <span>Dishes grouped by day with ingredient lists, then a consolidated shopping list with grand total.</span>
+          </div>
+          <div class="flow-step">
+            <strong>4. Save or discard</strong>
+            <span>Nothing persists until the user confirms — draft state lives in a dedicated store.</span>
+          </div>
+        </div>
+
+        <div class="quote">
+          <p>
+            “No sauce, anything that can be air fried.” — User notes flow into the preview and will
+            inform the Phase 2 LLM prompt. Phase 1 uses curated Filipino ingredient pools per category
+            and meat type.
+          </p>
+          <cite>Design intent: local context beats generic AI grocery lists</cite>
+        </div>
+      </section>
+
+      <section id="process">
+        <h2>Process</h2>
+        <p>
+          Development was spec-driven: 11 numbered frontend specs (setup through AI generate), each
+          with routes, ViewModels, acceptance criteria, and progress tracked in-repo. This kept scope
+          visible and made it easy to extend Phase 1 (Spec 11) without renumbering backend work (Specs
+          12–14).
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Research &amp; context</h3>
+            <p>
+              Product overview, navigation map, data models, and optional grocery UI kit references
+              for consumer patterns — adapted for Filipino workflows, not copied screen-for-screen.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Build &amp; iterate</h3>
+            <p>
+              MVVM folders from day one, Gluestack design tokens, i18n shell, mock services swappable
+              for APIs. Legacy template code removed once E-Kart screens replaced stubs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="architecture">
+        <h2>Technical architecture</h2>
+        <p>
+          Expo SDK 54, Expo Router file-based navigation, Gluestack UI, Zustand with AsyncStorage
+          persistence for auth/settings/profile, and TypeScript throughout. ViewModels expose screen
+          state; services own IO; models stay framework-agnostic.
+        </p>
+        <div class="tech">
+          <span>Expo SDK 54</span>
+          <span>React Native</span>
+          <span>TypeScript</span>
+          <span>Expo Router</span>
+          <span>Gluestack UI</span>
+          <span>Zustand</span>
+          <span>expo-camera</span>
+          <span>lottie-react-native</span>
+          <span>react-native-gesture-handler</span>
+          <span>MVVM</span>
+        </div>
+      </section>
+
+      <section id="decisions">
+        <h2>Key decisions</h2>
+        <ul class="feature-list">
+          <li>
+            <div>
+              <strong>Mock-first services</strong>
+              <span>Catalog, forum, OCR, and AI generate mirror future NestJS/FastAPI shapes — swap, don’t rewrite ViewModels.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Preview before persist (AI flow)</strong>
+              <span>Generated checklists are drafts until explicitly saved — reduces bad-list anxiety and matches real AI UX.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Alias-based forum identity</strong>
+              <span>Privacy-friendly display names synced to forum posts when profile alias edits.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>PHP + Filipino copy</strong>
+              <span>Currency formatting and bilingual strings (English / Filipino) from Spec 02 onward.</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="results">
+        <h2>Results (Phase 1)</h2>
+        <p>
+          All Phase 1 acceptance criteria are met: full user journey from onboarding through settings,
+          including the AI generate checklist flow with meal plan preview and shopping summary. The
+          codebase passes TypeScript and ESLint; architecture docs and specs live alongside the app
+          for continuity into backend integration.
+        </p>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Shipped</h3>
+            <p>Checklist + camera/OCR, catalog search, forum with media, profile, settings, AI generate.</p>
+          </div>
+          <div class="card">
+            <h3>Validated</h3>
+            <p>Navigation stacks, discard/save flows, theme and language persistence, budget recalculation on CRUD.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="next">
+        <h2>What’s next (Phase 2)</h2>
+        <p>Backend specs 12–20: NestJS modules (13–19) plus FastAPI catalog (20).</p>
+        <div class="next-grid">
+          <div class="card">
+            <strong>Specs 13–19</strong>
+            <p>NestJS — setup, auth, checklists, AI generate, forum, integration.</p>
+          </div>
+          <div class="card">
+            <strong>Spec 20</strong>
+            <p>FastAPI — multi-store catalog search.</p>
+          </div>
+          <div class="card">
+            <strong>Spec 12</strong>
+            <p>Infrastructure overview and migration strategy.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="links">
+        <h2>Project links</h2>
+        <p>
+          Replace the placeholders below with your live repo, demo video, or Behance/LinkedIn post when
+          ready.
+        </p>
+        <ul class="feature-list">
+          <li>
+            <div>
+              <strong>Portfolio hub</strong>
+              <span><a href="index.html">index.html</a> — start here for all assets</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Promo mockup</strong>
+              <span><a href="ekart-promo.html">ekart-promo.html</a> — three-panel portfolio graphic</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Screen mockups</strong>
+              <span><a href="ekart-mockups.html">ekart-mockups.html</a> — 13 HTML phone frames</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>System design</strong>
+              <span><a href="ekart-system-design.html">ekart-system-design.html</a> — architecture &amp; data flows</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>App flow</strong>
+              <span><a href="ekart-app-flow.html">ekart-app-flow.html</a> — navigation &amp; user journeys</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Product brief</strong>
+              <span><a href="ekart.md">ekart.md</a> — original app description</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Repository</strong>
+              <span>Add your GitHub URL here</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Live demo</strong>
+              <span>Expo Go / TestFlight / APK — add link when published</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>E-Kart case study · Phase 1 frontend · Built with Expo &amp; TypeScript</p>
+      <nav class="portfolio-footer-nav portfolio-footer-nav--dark">
+        <a href="index.html">Portfolio home</a>
+        <a href="ekart-promo.html">Promo</a>
+        <a href="ekart-system-design.html">System design</a>
+        <a href="ekart-app-flow.html">App flow</a>
+        <a href="ekart-mockups.html">Mockups</a>
+        <a href="ekart.md">Brief</a>
+      </nav>
+    </footer>
+  </body>
+</html>

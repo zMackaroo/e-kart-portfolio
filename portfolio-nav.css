@@ -1,0 +1,96 @@
+/* Shared navigation for E-Kart portfolio pages */
+.portfolio-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 24px;
+  background: rgba(15, 26, 18, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+.portfolio-nav-brand {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.portfolio-nav-brand:hover {
+  color: #9fdcb5;
+  text-decoration: none;
+}
+
+.portfolio-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.portfolio-nav-links a {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 7px 10px;
+  border-radius: 999px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.portfolio-nav-links a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.portfolio-nav-links a.active {
+  color: #fff;
+  background: #53b175;
+}
+
+.portfolio-footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.portfolio-footer-nav a {
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.portfolio-footer-nav--dark a {
+  color: #9fdcb5;
+}
+
+.portfolio-footer-nav--light a {
+  color: #358052;
+}
+
+@media (max-width: 640px) {
+  .portfolio-nav {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px 16px;
+  }
+
+  .portfolio-nav-links {
+    justify-content: flex-start;
+  }
+}
+
+@media print {
+  .portfolio-nav {
+    display: none;
+  }
+}
